@@ -1,0 +1,41 @@
+# Build results
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# ASP.NET Core secrets
+secrets.json
+
+# Environment files
+.env
+.env.*
+
+# Publish output
+publish/
+
+# NuGet Packages
+packages/
+
+# Node modules (if React/Angular frontend exists)
+node_modules/
+
+# Database files
+*.mdf
+*.ldf
+
+# OS generated files
+.DS_Store
+Thumbs.db
