@@ -31,8 +31,8 @@ namespace Order_management.Models
         [EmailAddress]
         public String Email { get; set; } = string.Empty;
 
-        [Column("password_hash")]
-        public string PasswordHash { get; set; } = string.Empty;
+        [Column("password")]
+        public string Password { get; set; } = string.Empty;
 
         [Column("is_deleted")]
         public bool IsDeleted { get; set; } = false;
