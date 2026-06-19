@@ -1,11 +1,11 @@
 ﻿using Order_management.DTOs.Products;
 using Order_management.Helper;
 using Order_management.Models;
-using Order_management.Repository.Implementation;
-using Order_management.Repository.Interface;
-using Order_management.Service.Interface;
+using Order_management.Repository.Implementations;
+using Order_management.Repository.Interfaces;
+using Order_management.Services.Interfaces;
 
-namespace Order_management.Service.Implementation
+namespace Order_management.Services.Implementations
 {
     public class ProductService :IProductService
     {
@@ -58,7 +58,7 @@ namespace Order_management.Service.Implementation
             var category = await _categoryRepository.GetByIdAsync(dto.Category_Id);
             if (category == null) return GenricResponse<ProductResponseDto>.FailureResponse("Category Not Found");
 
-            var product = new Products
+            var product = new Product
             {
                 Name = dto.Name,
                 Description = dto.Description,

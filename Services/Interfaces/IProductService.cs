@@ -1,9 +1,8 @@
-﻿
-using Order_management.DTOs.Products;
+﻿using Order_management.DTOs.Products;
 
 using Order_management.Helper;
 
-namespace Order_management.Service.Interface
+namespace Order_management.Services.Interfaces
 {
     public interface IProductService
     {

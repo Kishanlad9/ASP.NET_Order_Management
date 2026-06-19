@@ -15,35 +15,35 @@ namespace Order_management.Repository.Implementations
         }
         public async Task<IEnumerable<Customer>> GetAllAsync()
         {
-            List<Customer> customers = await _dbContext.Customer.Where(record => record.IsDeleted == false).ToListAsync();
+            List<Customer> customers = await _dbContext.Customers.Where(record => record.IsDeleted == false).ToListAsync();
             return customers;
         }
 
         public async Task<Customer?> GetByEmailAsync(String email)
         {
-            var customer = await _dbContext.Customer.FirstOrDefaultAsync(c => c.Email == email && c.IsDeleted == false);
+            var customer = await _dbContext.Customers.FirstOrDefaultAsync(c => c.Email == email && c.IsDeleted == false);
             return customer;
         }
 
         public async Task<Customer?> CreateAsync(Customer customer) 
         {
-            await _dbContext.Customer.AddAsync(customer);
+            await _dbContext.Customers.AddAsync(customer);
             await _dbContext.SaveChangesAsync();
             return customer;
         }
 
         public async Task<Customer?> DeleteAsync(int id)
         {
-            var deletedCustomer = await _dbContext.Customer.FindAsync(id);
+            var deletedCustomer = await _dbContext.Customers.FindAsync(id);
             if (deletedCustomer == null) return null;
-            _dbContext.Customer.Remove(deletedCustomer);
+            _dbContext.Customers.Remove(deletedCustomer);
             await _dbContext.SaveChangesAsync();
             return deletedCustomer;
         }
 
         public async Task<Customer?> UpdateAsync(int id, UpdateCustomerDTO dto)
         {
-            var customer = await _dbContext.Customer.FindAsync(id);
+            var customer = await _dbContext.Customers.FindAsync(id);
             if (customer == null) return null;
             if (!string.IsNullOrWhiteSpace(dto.Name)) customer.Name = dto.Name;
             if (!string.IsNullOrWhiteSpace(dto.Contact)) customer.Contact = dto.Contact;
@@ -54,7 +54,7 @@ namespace Order_management.Repository.Implementations
         }
         public async Task<Customer?> DisableCustomerAsync(int id)
         {
-            var disabledCustomer = await _dbContext.Customer.FindAsync(id);
+            var disabledCustomer = await _dbContext.Customers.FindAsync(id);
             if (disabledCustomer == null) return null;
             disabledCustomer.IsDeleted = true;
             await _dbContext.SaveChangesAsync();
