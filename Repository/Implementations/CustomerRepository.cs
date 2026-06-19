@@ -9,7 +9,7 @@ namespace Order_management.Repository.Implementations
     public class CustomerRepository : ICustomerRepository
     {
         private readonly AppDbContext _dbContext;
-        public CustomerRepository(AppDbContext dbContext)
+        public CustomerRepository(AppDbContext dbContext)   
         {
             _dbContext = dbContext;
         }

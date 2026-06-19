@@ -22,8 +22,6 @@
         public static GenricResponse<T>FailureResponse(string message ,List<string>? errors =null)
         {
             return new GenricResponse<T>(false, message, default, errors);
-        }
-
-
+        }   
     }
 }
