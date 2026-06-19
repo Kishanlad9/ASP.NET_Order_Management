@@ -6,7 +6,7 @@ using System.Xml.Linq;
 namespace Order_management.Models
 {
     [Table("products")]
-    public class Products
+    public class Product
     {
         
         [Key]

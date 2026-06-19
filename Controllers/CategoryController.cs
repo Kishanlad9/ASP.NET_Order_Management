@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Order_management.DTOs.Category;
-using Order_management.Service.Interface;
+using Order_management.Services.Interfaces;
 
 namespace Order_management.Controllers
 {

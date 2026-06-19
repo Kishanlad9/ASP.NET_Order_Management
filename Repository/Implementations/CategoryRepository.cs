@@ -2,14 +2,14 @@
 using Microsoft.EntityFrameworkCore;
 using Order_management.Data;
 using Order_management.Models;
-using Order_management.Repository.Interface;
+using Order_management.Repository.Interfaces;
 
-namespace Order_management.Repository.Implementation
+namespace Order_management.Repository.Implementations
 {
     public class CategoryRepository: ICategoryRepository
     {
-        private readonly AppDBContext _context;
-        public CategoryRepository(AppDBContext context)
+        private readonly AppDbContext _context;
+        public CategoryRepository(AppDbContext context)
         {
             _context = context;
         }

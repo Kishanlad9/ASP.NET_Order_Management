@@ -2,7 +2,7 @@
 using Order_management.Helper;
 using Order_management.Models;
 
-namespace Order_management.Service.Interface
+namespace Order_management.Services.Interfaces
 {
     public interface ICategoryService
     {

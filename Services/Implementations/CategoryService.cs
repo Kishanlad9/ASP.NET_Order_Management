@@ -1,10 +1,10 @@
 ﻿using Order_management.DTOs.Category;
 using Order_management.Helper;
 using Order_management.Models;
-using Order_management.Repository.Interface;
-using Order_management.Service.Interface;
+using Order_management.Repository.Interfaces;
+using Order_management.Services.Interfaces;
 
-namespace YourProjectName.Service.Implementation
+namespace Order_management.Services.Implementations
 {
     public class CategoryService : ICategoryService
     {

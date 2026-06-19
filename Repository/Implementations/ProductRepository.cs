@@ -1,38 +1,38 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Order_management.Data;
 using Order_management.Models;
-using Order_management.Repository.Interface;
+using Order_management.Repository.Interfaces;
 
-namespace Order_management.Repository.Implementation
+namespace Order_management.Repository.Implementations
 {
     public class ProductRepository : IProdcutRepository
     {
-        private readonly AppDBContext _dbContext;
+        private readonly AppDbContext _dbContext;
 
-        public ProductRepository(AppDBContext dBContext)
+        public ProductRepository(AppDbContext dBContext)
         {
             _dbContext = dBContext;
         }
 
-        public async Task<List<Products>> GetAllAsync()
+        public async Task<List<Product>> GetAllAsync()
         {
             return await _dbContext.Products
                 .Include(x => x.Category)
                 .ToListAsync();
         }
-        public async Task<Products?> GetByIdAsync(int id)
+        public async Task<Product?> GetByIdAsync(int id)
         {
             return await _dbContext.Products
                 .Include(x => x.Category)
                 .FirstOrDefaultAsync(x => x.Id == id);
         }
-        public async Task<Products> AddAsync(Products product)
+        public async Task<Product> AddAsync(Product product)
         {
             await _dbContext.Products.AddAsync(product);
             await _dbContext.SaveChangesAsync();
             return product;
         }
-        public async Task<Products?> UpdateAsync(Products product)
+        public async Task<Product?> UpdateAsync(Product product)
         {
             var existing = await _dbContext.Products
                 .FirstOrDefaultAsync(x => x.Id == product.Id);
@@ -43,7 +43,6 @@ namespace Order_management.Repository.Implementation
             existing.Stock = product.Stock;
             existing.Category_Id = product.Category_Id;
             await _dbContext.SaveChangesAsync();
-
             return existing;
         }
         public async Task<bool> DeleteAsync(int id)

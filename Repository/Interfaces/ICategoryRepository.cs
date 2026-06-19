@@ -1,6 +1,6 @@
 ﻿using Order_management.Models;
 
-namespace Order_management.Repository.Interface
+namespace Order_management.Repository.Interfaces
 {
     public interface ICategoryRepository
     {
