@@ -12,15 +12,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-{
+builder.Services.AddDbContext<AppDBContext>(options =>
     options.UseNpgsql(
-        builder.Configuration
-        .GetConnectionString("DefaultConnection"));
-});
+        builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
-
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IProdcutRepository, ProductRepository>();
+builder.Services.AddScoped<IProductService, ProductService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
