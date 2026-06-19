@@ -32,7 +32,7 @@ namespace Order_management.Repository.Implementation
             await _dbContext.SaveChangesAsync();
             return product;
         }
-        public async Task<Products?> UpdateAsync(Products product)
+        public async Task<Products> UpdateAsync(Products product)
         {
             var existing = await _dbContext.Products
                 .FirstOrDefaultAsync(x => x.Id == product.Id);
