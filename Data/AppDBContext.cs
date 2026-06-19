@@ -3,14 +3,14 @@ using Order_management.Models;
 
 namespace Order_management.Data
 {
-    public class AppDBContext : DbContext
+    public class AppDbContext : DbContext
     {
-        public AppDBContext(DbContextOptions<AppDBContext> options) : base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
 
         }
-        public DbSet<Products> Products { get; set; }
-       
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Customer> Customers { get; set; }
         public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -23,7 +23,7 @@ namespace Order_management.Data
 
                 entity.HasQueryFilter(c => !c.isDeleted);
             });
-            modelBuilder.Entity<Products>(entity =>
+            modelBuilder.Entity<Product>(entity =>
             {
                 entity.HasKey(c => c.Id);
                 entity.Property(c => c.IsDeleted)
