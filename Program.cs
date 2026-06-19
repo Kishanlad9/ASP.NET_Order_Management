@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Order_management.Data;
 using Order_management.Repository.Implementation;
 using Order_management.Repository.Interface;
+using Order_management.Service.Implementation;
 using Order_management.Service.Interface;
 using YourProjectName.Service.Implementation;
 
@@ -18,6 +19,8 @@ builder.Services.AddDbContext<AppDBContext>(options =>
         builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IProdcutRepository, ProductRepository>();
+builder.Services.AddScoped<IProductService, ProductService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
